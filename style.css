@@ -1,0 +1,47 @@
+* {
+   /*outline: solid 1px red;*/
+    box-sizing: border-box;
+}
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 44px;
+	margin-left: 50px;
+	margin-bottom: 50px;
+
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 600px;
+    margin-left: 50px;
+
+}
+
+.item {
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+    line-height: 150px;
+    color: black;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+
+.one, .four, .seven, .two, .five, .eight {
+	border-right: solid 15px black;
+}
+
+.one, .two, .three, .four, .five, .six {
+	border-bottom: solid 15px black;
+}
+
+.hidden{
+	display: hidden;
+}
+.material-icons {
+	font-size: 144px;
+	font-weight: bold;
+}
