@@ -6,21 +6,28 @@
     <title>Tic Tac Toe</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Tic Tac Toe</h1>
     <div class="container">
-        <div class="item one"></div>
-        <div class="item two"></div>
-        <div class="item three"></div>
-        <div class="item four"></div>
-        <div class="item five"></div>
-        <div class="item six"></div>
-        <div class="item seven"></div>
-        <div class="item eight"></div>
-        <div class="item nine"></div>
+        <div id="one" class="item"></div>
+        <div id="two" class="item"></div>
+        <div id="three" class="item"></div>
+        <div id="four" class="item"></div>
+        <div id="five" class="item"></div>
+        <div id="six" class="item"></div>
+        <div id="seven" class="item"></div>
+        <div id="eight" class="item"></div>
+        <div id="nine" class="item"></div>
+    </div>
+    <div class="gameOver hidden">
+    <h3>Game Over!</h3>
+    <button class="mdl-button mdl-js-button mdl-button-raised">
+  New Game
+</button>
     </div>
     <div class="hidden">
         <i class="material-icons xsymbol">clear</i>

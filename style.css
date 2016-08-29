@@ -3,8 +3,11 @@
     box-sizing: border-box;
 }
 
+h1, h3{
+    font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
-	font-family: 'Montserrat', sans-serif;
 	font-size: 44px;
 	margin-left: 50px;
 	margin-bottom: 50px;
@@ -30,18 +33,37 @@ h1 {
     text-align: center;
 }
 
-.one, .four, .seven, .two, .five, .eight {
+#one, #four, #seven, #two, #five, #eight {
 	border-right: solid 15px black;
 }
 
-.one, .two, .three, .four, .five, .six {
+#one, #two, #three, #four, #five, #six {
 	border-bottom: solid 15px black;
+}
+
+.gameOver {
+    width: 350px;
+    height: 350px;
+    margin-left: 175px;
+    position: absolute;
+    top: 200px;
+    z-index: 500;
+    background-color: white;
+    border: solid 3px black;
+}
+
+h3 {
+   text-align: center;
+}
+
+button {
+    margin: 0 auto;
 }
 
 .hidden {
 	display: none;
 }
 .material-icons {
-	font-size: 144px;
+	font-size: 122px;
 	font-weight: bold;
 }
