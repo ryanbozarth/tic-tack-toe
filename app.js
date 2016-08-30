@@ -1,33 +1,34 @@
 $(function() {
 
     var count = 0;
-
+    var nextTurn = "<i class='material-icons xsymbol'>clear</i>"
     var winningChoices = [
-        ["one", "two", "three"], // horizontal
+        ["one", "two", "three"],
         ["four", "five", "six"],
         ["seven", "eight", "nine"],
-        ["one", "four", "seven"], // vertical
+        ["one", "four", "seven"],
         ["two", "five", "eight"],
         ["three", "five", "nine"],
-        ["one", "five", "nine"], // diagonal
+        ["one", "five", "nine"], 
         ["three", "five", "seven"]
     ];
 
-    var nextTurn = "<i class='material-icons xsymbol'>clear</i>"
- 
-    $(".newGame").click(function() {
-        $(".item").empty();
-    });
-
-
+    gameOver();
     Play();
-
+    
+    function gameOver() {
+        $(".new-game").on("click", function() {
+            $(".item").empty();
+            $(".gameOver").addClass("hidden");
+            $(".gameOver p").html("");
+            count = 0;
+        });
+    };
     function Play() {
         $(".item").click(function() {
             if ($(this).text().length == 0) {
                 $(this).append(nextTurn);
                 changeTurn();
-                count += 1;
                 var html = $('#' + this.id).html();
                 var symbol = '';
                 if (html.includes('xsymbol')) {
@@ -36,47 +37,41 @@ $(function() {
                     symbol = 'osymbol';
                 }
                 checkWinner(this.id, symbol);
+                count += 1;
+                console.log(count);
             }
-
         });
     };
-
     function checkWinner(id, symbol) {
-       // console.log(id, symbol);
         var options = [];
         for (var i = 0; i < winningChoices.length; i++) {
             if (winningChoices[i].indexOf(id) != -1) {
                 options.push(winningChoices[i])
             }
         }
-        // console.log(options);
-       
-        for (var j = 0; j < options.length; j++) { ///
+        for (var j = 0; j < options.length; j++) {
             var p = 0;
             for (var k = 0; k < options[j].length; k++) {
-                if ($('#' + options[j][k]).html().includes(symbol)){
-                	p++                }
+                if ($('#' + options[j][k]).html().includes(symbol)) {
+                    p++;
+                }
+            }
+            if (p === 3) {
+                $(".gameOver").removeClass("hidden");
+                $(".gameOver h2").after("<p> " + symbol + " is the winner<p>")
+            } else if (count == 9) {
+                alert("draw");
+            }
+            else {
 
             }
-        if (p == 3) {
-        	alert("winner");
-        }
-        
- 
         }
     }
-
-
     function changeTurn() {
         if (nextTurn == "<i class='material-icons xsymbol'>clear</i>") {
             nextTurn = "<i class='material-icons osymbol'>radio_button_unchecked</i></br>";
-
-            // verify gameOver condidtions
-
         } else {
             nextTurn = "<i class='material-icons xsymbol'>clear</i>";
         }
     }
-
-
 });
