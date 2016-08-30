@@ -29,6 +29,8 @@ $(function() {
             if ($(this).text().length == 0) {
                 $(this).append(nextTurn);
                 changeTurn();
+                count += 1;
+                console.log(count);
                 var html = $('#' + this.id).html();
                 var symbol = '';
                 if (html.includes('xsymbol')) {
@@ -37,8 +39,6 @@ $(function() {
                     symbol = 'osymbol';
                 }
                 checkWinner(this.id, symbol);
-                count += 1;
-                console.log(count);
             }
         });
     };
@@ -58,9 +58,10 @@ $(function() {
             }
             if (p === 3) {
                 $(".gameOver").removeClass("hidden");
-                $(".gameOver h2").after("<p> " + symbol + " is the winner<p>")
+                $(".gameOver p").text(symbol + " is the winner")
             } else if (count == 9) {
-                alert("draw");
+                $(".gameOver").removeClass("hidden");
+                $(".gameOver p").text("It's a draw. Try harder.");
             }
             else {
 
